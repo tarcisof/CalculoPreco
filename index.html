@@ -13,23 +13,33 @@
         <h1>Calculadora de Preço - TQV</h1>
         <h2>Tecnologia e Qualidade de Vida</h2>
 
-        <div class="form">
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('varejo')">Varejo</button>
+            <button class="tab-button" onclick="showTab('atacado')">Atacado</button>
+        </div>
+
+        <div id="varejo" class="tab-content active">
             <div class="product-options">
-                <label>
-                    <input type="radio" name="productType" value="perfume" checked> Perfumes
-                </label>
-                <label>
-                    <input type="radio" name="productType" value="smartwatch"> Smart Watches
-                </label>
+                <label><input type="radio" name="productType" value="perfume" checked> Perfumes</label>
+                <label><input type="radio" name="productType" value="smartwatch"> Smart Watches</label>
             </div>
+        </div>
 
+        <div id="atacado" class="tab-content">
+            <div class="product-options">
+                <label><input type="radio" name="productType" value="hidratante"> Hidratante</label>
+                <label><input type="radio" name="productType" value="perfume25"> Perfume 25ml</label>
+                <label><input type="radio" name="productType" value="perfume80_100"> Perfume 80ml / 100ml</label>
+            </div>
+        </div>
+
+        <div class="form">
             <input type="number" id="custo" placeholder="Digite o custo do produto (Ex: 120)">
-
             <button onclick="calcularPreco()">Calcular Preço de Venda</button>
-
             <div id="resultado"></div>
         </div>
     </div>
+
 
     <script src="script.js"></script>
 </body>
