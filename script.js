@@ -1,10 +1,10 @@
 function calcularPreco() {
     const custo = parseFloat(document.getElementById('custo').value);
     const productType = document.querySelector('input[name="productType"]:checked').value;
-    const frete = 7 / 0.96; // Frete fixo padrão para varejo
+    const frete = 7 / 0.96;
     let precoSemFrete = 0;
     let precoComFrete = 0;
-    let tipoVenda = "Varejo"; // padrão
+    let tipoVenda = "Varejo";
     let infoLucro = "";
 
     if (isNaN(custo) || custo <= 0) {
@@ -12,7 +12,6 @@ function calcularPreco() {
         return;
     }
 
-    // ---------------- VAREJO ----------------
     if (productType === 'perfume') {
         tipoVenda = "Varejo";
         if (custo < 100) {
@@ -46,27 +45,29 @@ function calcularPreco() {
         infoLucro = "Margem variável conforme custo + frete fixo";
     } 
 
-    // ---------------- ATACADO ----------------
     else if (productType === 'hidratante') {
         tipoVenda = "Atacado";
         precoSemFrete = custo / 0.74; // 26% lucro
         precoComFrete = precoSemFrete / 0.98; // +2% frete
         infoLucro = "Lucro: 26% + Frete: 2%";
-    } 
-    else if (productType === 'perfume25') {
+    } else if (productType === 'perfume25') {
         tipoVenda = "Atacado";
         precoSemFrete = custo / 0.72; // 28% lucro
         precoComFrete = precoSemFrete / 0.98; // +2% frete
         infoLucro = "Lucro: 28% + Frete: 2%";
-    } 
-    else if (productType === 'perfume80_100') {
+    } else if (productType === 'perfume80_100') {
         tipoVenda = "Atacado";
         precoSemFrete = custo / 0.75; // 25% lucro
         precoComFrete = precoSemFrete / 0.98; // +2% frete
         infoLucro = "Lucro: 25% + Frete: 2%";
+    } else if (productType==='diversos'){
+        tipoVenda="Atacado";
+        precoSemFrete= custo / 0.76; //24% lucro
+        precoComFrete = precoSemFrete / 0.98; // +2% frete
+        infoLucro="Lucro: 24% + Frete: 2%"
     }
 
-    // ---------------- Resultado ----------------
+
     document.getElementById('resultado').innerHTML = `
         <strong>Tipo de venda:</strong> ${tipoVenda}<br>
         <strong>Preço sem frete:</strong> R$ ${precoSemFrete.toFixed(2)}<br>
