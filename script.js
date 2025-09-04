@@ -65,8 +65,7 @@ function calcularPreco() {
         precoSemFrete= custo / 0.76; //24% lucro
         precoComFrete = precoSemFrete / 0.98; // +2% frete
         infoLucro="Lucro: 24% + Frete: 2%"
-    }
-    else if (productType === 'roupa_acad'){
+    } else if (productType === 'roupa_acad'){
         tipoVenda="Atacado";
         precoSemFrete = custo / 0.75;
         precoComFrete = precoSemFrete / 0.96;
